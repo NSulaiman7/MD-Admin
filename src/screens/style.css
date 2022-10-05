@@ -160,7 +160,10 @@ body {
 
 .search_bar h2 {
     margin: 15px 0px;
+    font-weight:900;
+    font-size: 40px;
 }
+
 .advice-text{
     font-size:18px ;
 }
@@ -671,7 +674,7 @@ ul li a:hover{
 .psw a {
 
     font-size:12.5px;
-	color:#20477bd6;
+	color:#1f4428;
 	font-weight:bold;
 	text-align: right;
     
@@ -679,7 +682,7 @@ ul li a:hover{
 
 .psw:hover{
 
-color: #07290f;
+color: #3f6e4a;
 }
 
 #result-box{
@@ -706,4 +709,167 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #0b2a1ff6;
     text-align: center;
     font-size: 30px;
+}
+
+.request{
+
+    color: #0b2a1ff6;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 50px;
+    
+}
+
+.charity{
+
+    color: #0b2a1ff6;
+    text-align: center;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.center-request{
+   display:inline-table;
+    width: 10%;
+    padding: 30px; 
+    border-radius: 20px;   
+    background-color: #48685d36;   
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border: 2px solid #012f1f;
+    
+}
+
+.centerInfo{
+    display: block;
+    margin-left: auto;
+    margin-right: 35vw;
+    width: 25%;
+    padding: 40px; 
+    border-radius: 8px;   
+    background-color: rgba(31, 55, 44, 0.374);   
+    float: right; 
+    text-align: right; 
+    border: 2px solid #012f1f;
+}
+
+.boxInfo{
+    width: 88.5%;
+    padding: 30px; 
+    border-radius: 5px;   
+    background-color: #48685d36;   
+    margin-bottom: 10px;
+    margin-right: 50px;
+    float: right;
+    border: 2px solid #012f1f;
+}
+
+.orgaName{
+    
+    color: #0b2a1ff6;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.orgaTop{
+
+    text-align: right;
+    color: #0b2a1ff6;
+    font-size: 30px;
+    font-weight: 550;
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+
+.orgaInfo{
+
+    text-align: right;
+    text-align: right;
+    color: #4f8975f6;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+   
+
+}
+
+.buttonInfo{
+    background: #012f1f;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    padding: 14px 20px;
+    
+    display: inline-block;
+    font-weight: 1;
+    color: #FFFFFF;
+    text-align: center;
+    vertical-align: middle;    
+    border: 1px solid transparent;
+    padding: .175rem .75rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    border-radius: 20px;
+}
+
+.buttonInfo:hover{
+    background-color: #48685d04;
+           color: #012f1f;
+           border: 2px solid #012f1f;
+           font-size: 18px;
+}
+
+.redBtn{
+    background: #6e0d0d;
+    color: #fff;
+    text-align: center;   
+    border: 3px solid transparent;
+    padding: 0.175rem 0.75rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    font-size: 28px;
+    line-height: 1.2;
+    border-radius: 18px; 
+}
+
+.redBtn:hover{
+    background-color: rgba(255, 255, 255, 0.436);
+           color: #6e0d0d;
+           border: 2px solid #6e0d0d;
+           font-size: 32px;
+}
+
+.greenBtn{
+    background: #2f8e5e;
+    color: #fff;
+    text-align: center;   
+    border: 3px solid transparent;
+    padding: 0.175rem 0.75rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 30px;
+    line-height: 1.1;
+    border-radius: 18px; 
+}
+
+.greenBtn:hover{
+    background-color: rgba(255, 255, 255, 0.436);
+    color: #2f8e5e;
+    border: 2px solid #2f8e5e;
+    font-size: 32px;
+}
+
+.space{
+    padding-top: 20px;
+    
+}
+.error{
+    text-align: center;
+    font-size: 15px;
+    color: rgb(145, 22, 22);
+  
 }
