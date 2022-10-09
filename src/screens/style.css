@@ -842,7 +842,7 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .redBtn:hover{
-    background-color: rgba(255, 255, 255, 0.436);
+    background-color: rgba(201, 30, 30, 0.229);
            color: #6e0d0d;
            border: 2px solid #6e0d0d;
            font-size: 32px;
@@ -863,7 +863,7 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .greenBtn:hover{
-    background-color: rgba(255, 255, 255, 0.436);
+    background-color: #0f9d562c;
     color: #2f8e5e;
     border: 2px solid #2f8e5e;
     font-size: 32px;
