@@ -26,6 +26,10 @@ const ViewInfo=()=>{
 
     },[])
 
+    const handleHistory=(e)=>{
+        navigate('/viewRequest')
+      }  
+
     const signOut= async ()=>{
         try {
       
@@ -79,6 +83,8 @@ const ViewInfo=()=>{
 
     <div className="spaser"></div>
 
+    <div className='backCont'>  <div className='back'  onClick={handleHistory}></div>  </div>
+
     <div className="content">
 
 {/* <h1 className='topic'>معلومات الجمعية الخيرية</h1> */}
@@ -110,9 +116,9 @@ const ViewInfo=()=>{
     <div className='orgaTop'>رقم الترخيص</div>
     <div className='orgaInfo'>{Info.documentationNo}</div>
 
-    {/* <button className='redBtn'>رفض</button>
+    <button className='redBtn'>رفض</button>
 
-    <button className='greenBtn'>قبول</button> */}
+    <button className='greenBtn'>قبول</button>
 
     </div>
    
