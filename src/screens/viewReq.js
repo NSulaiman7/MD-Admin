@@ -25,6 +25,10 @@ const SignOut=()=>{
 
     },[])
 
+    const handleHistory=(e)=>{
+        navigate('/home')
+      }  
+
 
     const signOut= async ()=>{
         try {
@@ -72,16 +76,16 @@ const SignOut=()=>{
     <div className="spaser"></div>
 
     <div className="search_bar">
-        <h2>الصفحة الرئيسية</h2>    
+        <h2>طلبات الجمعيات الخيرية</h2>    
     </div>
 
     <div className="spaser"></div>
 
-
+    <div className='backCont'>  <div className='back'  onClick={handleHistory}></div>  </div>
 
     <div className="content">
 
-    <h1 className='request'>طلبات الجمعيات الخيرية</h1>
+    {/* <h1 className='request'>طلبات الجمعيات الخيرية</h1> */}
 
     {Request==""?
 
