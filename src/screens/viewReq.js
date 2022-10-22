@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 import './style.css';
 import './footer.css';
 
+// import ReactDOM from "react-dom";
+// import ConfirmBox from "react-dialog-confirm";
+// import "../node_modules/react-dialog-confirm/build/index.css";
+
 
 
 
@@ -12,7 +16,21 @@ import './footer.css';
 const SignOut=()=>{
     const navigate = useNavigate();
     const [Request, setRequest]= useState("");
+    // const [isOpen, setIsOpen] = useState(false);
      
+
+
+    // const handleClose = () => {
+    //     setIsOpen(!isOpen);
+    //   };
+    
+    //   const handleConfirm = () => {
+    //     alert("yes button clicked");
+    //   };
+    //   const handleCancel = () => {
+    //     alert("no button clicked");
+    //   };
+
 
     
     useEffect(()=>{
@@ -25,13 +43,25 @@ const SignOut=()=>{
 
     },[])
 
-    const handleHistory=(e)=>{
-        navigate('/home')
-      }  
+    // const handleHistory=(e)=>{
+    //     navigate('/home')
+    //   }  
+
+      const handleHistory1=(e)=>{
+        navigate('/category')
+      }
+
+      const handleHistory2=(e)=>{
+        navigate('/oldCharity')
+      }
+      
+
 
 
     const signOut= async ()=>{
         try {
+
+
       
             Cookies.remove("loggedIn")
             navigate('/')
@@ -42,6 +72,7 @@ const SignOut=()=>{
           console.log("sign in error", error)
         }
       }
+
 
 
       const viewRequests= async ()=>{
@@ -60,7 +91,18 @@ const SignOut=()=>{
     return(
 
         <div>
-
+{/* <ConfirmBox // all props are required
+        icon="https://img.icons8.com/clouds/100/000000/vector.png"
+        label={{
+          text: "Are you sure you want to delete this element?",
+          confirm: "yes",
+          cancel: "no"
+        }}
+        isOpen={isOpen} // to close or open dialog (true | false)
+        onClose={handleClose} // to close or open dialog
+        onConfirm={handleConfirm} // return yes : if button yes clicked
+        onCancel={handleCancel} // return no : button no clicked
+      /> */}
              <body>
     
     <div className="topnav">
@@ -81,11 +123,38 @@ const SignOut=()=>{
 
     <div className="spaser"></div>
 
-    <div className='backCont'>  <div className='back'  onClick={handleHistory}></div>  </div>
+    <div className='backCont'>
+
+    <div class="dropdown">
+
+    <div class="dropdown1">
+
+                <span>الطلبات الحاليه</span>
+                </div>
+
+      <div class="dropdown2">
+
+                <span onClick={handleHistory1}>الفئات</span>
+                </div>
+                <div class="dropdown2">
+
+                <span onClick={handleHistory2}>الطلبات السابقه</span>
+                </div>
+
+                </div>
+                {/* <div class="dropdown-content">
+                    <p className='dropText' onClick={handleHistory1}>الفئات</p>                    
+                </div> */}
+
+            
+
+            {/* <div className='back'  onClick={handleHistory}> </div>  */}
+
+            </div>
+
+    {/* <div className='backCont'>  <div className='back'  onClick={handleHistory}> </div>  </div> */}
 
     <div className="content">
-
-    {/* <h1 className='request'>طلبات الجمعيات الخيرية</h1> */}
 
     {Request==""?
 
@@ -95,18 +164,20 @@ const SignOut=()=>{
 
 </div>
 
-:Request.map(doc=> <div className="center-request">
+:Request=="empty"?<div className='emptyOrder'>لا توجد طلبات</div>: Request.map(doc=> <div className="center-request">
 
 <div className='charity'>{doc.Name}</div>
 
 <div className="space"></div>
 
-    <button className='buttonInfo' onClick={()=>navigate(`/viewInfo${doc.id}`)}>معلومات  الجمعية</button>
+    <button className='buttonInfo' onClick={()=>navigate(`/viewInfo${doc.id}`)}>التفاصيل</button>
 
 </div>)
 
     
 }
+
+
 
     </div>
 
