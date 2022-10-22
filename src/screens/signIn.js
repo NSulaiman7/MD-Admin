@@ -4,8 +4,7 @@ import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 import './style.css';
 import './footer.css';
-
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -14,12 +13,22 @@ const SignIn=()=>{
 
     const [email, setEmail]= useState("");
     const [password, setPassword]= useState("");
-    // const [loggedIn, setLoggedIn]= useState("");
+    const [Error, setError]= useState(false);
+
+    const handleSubmit=(e)=>{
+      
+      if(email.length==0||password.length==0){
+        setError(true);
+      }
+      console.log(email,password);
+    }
+
+  
 
     useEffect(()=>{
         if(Cookies.get("loggedIn")){
 
-            navigate('/SignOut')
+            navigate('/viewRequest')
 
         }
 
@@ -32,11 +41,13 @@ const SignIn=()=>{
 
           if(res.data.loggedIn=="true"){
             Cookies.set("loggedIn", true)
-            navigate('/SignOut')
+            navigate('/viewRequest')
           }
           else{
 
-            window.alert("خطأ في البريد الإلكتروني/كلمة المرور!");
+            setError(true);
+
+            // window.alert("خطأ في البريد الإلكتروني/كلمة المرور!");
           }
         
         } catch (error) {
@@ -63,26 +74,37 @@ const SignIn=()=>{
     <div className="content">
         <div className="center">
             
-            <div className="col-100">
+            <div className="col-100" onSubmit={handleSubmit}>
             
                <div className="col-100">
-                 <label for="email" className="content-font">البريد الإلكتروني</label>
-          <input id="email" type="email" className="form-item-right" placeholder="البريد الإلكتروني" value={email} onChange={(e)=> {setEmail(e.target.value)}} required/>
+               {email.length<=0? <label className='error'>* </label>:""}
+                 <label for="email" className="content-font">البريد الإلكتروني </label> 
+          <input id="email" type="email" className="form-item-right" placeholder="البريد الإلكتروني" value={email} onChange={(e)=> {setEmail(e.target.value)}}/>
+                                {/* {Error&&email.length<=0? <label className='error'>هذا الحقل مطلوب</label>:""} */}
                      </div>
 
                    
                      <div className="col-100">
-                         <label for="password" className="content-font">كلمة المرور</label>
-      <input id="password" type="password" className="form-item-right" placeholder="كلمة المرور" value={password} onChange={(e)=> {setPassword(e.target.value)}} required/>
+                     {password.length<=0? <label className='error'>* </label>:""}
+                         <label for="password" className="content-font">كلمة المرور </label>
+      <input id="password" type="password" className="form-item-right" placeholder="كلمة المرور" value={password} onChange={(e)=> {setPassword(e.target.value)}}/>
+                                 {/* {Error&&password.length<=0? <label className='error'>هذا الحقل مطلوب</label>:""} */}
+                                              
                     </div>
 
 
                    <div className="col-100">
                          <button id="submit" type='submit' className="form-item btn" onClick={signIn} >دخول</button> 
+                         {/* {Error&&email.length!=0&&password.length!=0?
+                         <div className='error'>خطأ في البريد الإلكتروني أو كلمة المرور</div>:null} */}
                        
                      </div> 
 
-                     {/* <span class="psw"> <a class="psw" href="ForgotPass.html">هل نسيت كلمة المرور؟</a></span>  */}
+                     <span className="psw"> <Link className="psw" to={'/ForgotPass'}>هل نسيت كلمة المرور؟</Link> </span>
+
+                     {/* <span class="psw"> <a class="psw" href="ForgotPass.js">هل نسيت كلمة المرور؟</a></span>  */}
+                     
+                     {Error?<div className='error'>خطأ في البريد الإلكتروني أو كلمة المرور</div>:null}
                 
              </div>        
         </div>
