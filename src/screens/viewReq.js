@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import './style.css';
 import './footer.css';
 
+
 // import ReactDOM from "react-dom";
 // import ConfirmBox from "react-dialog-confirm";
 // import "../node_modules/react-dialog-confirm/build/index.css";
@@ -16,7 +17,7 @@ import './footer.css';
 const SignOut=()=>{
     const navigate = useNavigate();
     const [Request, setRequest]= useState("");
-    // const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen]= useState(false);
      
 
 
@@ -155,7 +156,13 @@ const SignOut=()=>{
     {/* <div className='backCont'>  <div className='back'  onClick={handleHistory}> </div>  </div> */}
 
     <div className="content">
+      
 
+      <div className='ReqBox1'>
+    <div className='charityR'>طلبات في الانتظار</div>
+</div>
+
+{/* <div className='ReqBoxCenter'> */}
     {Request==""?
 
 <div className="center">
@@ -164,19 +171,20 @@ const SignOut=()=>{
 
 </div>
 
-:Request=="empty"?<div className='emptyOrder'>لا توجد طلبات</div>: Request.map(doc=> <div className="center-request">
-
+:Request=="empty"?<div className='emptyOrder'>لا توجد طلبات</div>: Request.map(doc=> <button className='center-request1' onClick={()=>navigate(`/viewInfo${doc.id}`)}>
 <div className='charity'>{doc.Name}</div>
+{/* <div className='charity'>{doc.Name}</div> */}
 
-<div className="space"></div>
+{/* <div className="space"></div> */}
 
-    <button className='buttonInfo' onClick={()=>navigate(`/viewInfo${doc.id}`)}>التفاصيل</button>
+    {/* <button className='buttonInfo' onClick={()=>navigate(`/viewInfo${doc.id}`)}>التفاصيل</button> */}
 
-</div>)
+</button>)
 
     
 }
 
+{/* </div> */}
 
 
     </div>
