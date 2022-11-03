@@ -126,8 +126,13 @@ const OldCharity=()=>{
 
 
     <div className='content'>
+        <div className='ooo'>
 
+    <div className='ReqBoxCenterA'>
+
+{/* <div className='ReqBox'> */}
     <div className='charityRA'>جمعيات تم قبولها</div>
+    {/* </div> */}
 
     {Accepted==""?
 
@@ -147,7 +152,15 @@ const OldCharity=()=>{
 </button>)
     
  } 
+ </div>
+
+ <div className='ReqBoxCenterD'>
+
+{/* <div className='ReqBox'> */}
   <div className='charityRD'>جمعيات تم رفضها</div>
+  {/* </div> */}
+
+
 
 {Declined==""?
 
@@ -168,6 +181,10 @@ const OldCharity=()=>{
 </button>)
    
 } 
+
+</div>
+</div>
+
 
 
     </div> 
