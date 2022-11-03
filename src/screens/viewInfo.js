@@ -13,6 +13,9 @@ const ViewInfo=()=>{
     const navigate = useNavigate();
     const {id}=useParams();
     const [Info, setInfo]= useState("");
+    const [accept, setAccept]= useState("");
+    const [decline, setDecline]= useState("");
+    // const [back, setBack]= useState("");
 
     
     useEffect(()=>{
@@ -27,6 +30,8 @@ const ViewInfo=()=>{
     },[])
 
     const handleHistory=(e)=>{
+
+
         navigate('/viewRequest')
       }  
 
@@ -43,14 +48,52 @@ const ViewInfo=()=>{
         }
       }
 
-
       const viewInfo= async (id)=>{
         try {
       
           const res= await axios.post("http://localhost:5000/api/auth/viewInfo",{id:id})
           console.log(res.data);
+
+          if(res.data.status=="accepted"){
+            setAccept(true);
+          }
+
+          if(res.data.status=="declined"){
+            setDecline(true);
+          }
+         
           setInfo(res.data);
         
+        } catch (error) {
+      
+          console.log(error)
+        }
+
+    }
+
+    
+    const Accept= async ()=>{
+        try {
+      
+          const res= await axios.post("http://localhost:5000/api/auth/updateAccept",{id:id})
+          console.log(res.data);
+          setAccept(res.data);
+
+        } catch (error) {
+      
+          console.log(error)
+        }
+
+    }
+
+    
+    const Decline= async ()=>{
+        try {
+      
+          const res= await axios.post("http://localhost:5000/api/auth/updateDecline",{id:id})
+          console.log(res.data);
+          setDecline(res.data);
+
         } catch (error) {
       
           console.log(error)
@@ -83,9 +126,9 @@ const ViewInfo=()=>{
 
     <div className="spaser"></div>
 
-    <div className='backCont'>  <div className='back'  onClick={handleHistory}></div>  </div>
+    {/* <div className='backCont'>  <div className='back'  onClick={handleHistory}></div></div> */}
 
-    <div className="content">
+    <div className="contentI">
 
 {/* <h1 className='topic'>معلومات الجمعية الخيرية</h1> */}
 
@@ -94,13 +137,18 @@ const ViewInfo=()=>{
 
 <div className="centerInfo">
     
+    
 {/* ___________________________ */}
 
 </div>
 
 :<div>
+    <div className='back'  onClick={handleHistory}></div>
 
     <div className='boxInfo'>
+    
+
+    <img className='imageOrg' src={Info.profilePicture}/>
 
     <div className='orgaName'>{Info.organizationName}</div>
 
@@ -113,20 +161,28 @@ const ViewInfo=()=>{
     <div className='orgaTop'>نشاط الجمعية</div>
     <div className='orgaInfo'>{Info.activity}</div>
 
+    <div className='orgaTop'>رقم الجوال</div>
+    <div className='orgaInfo'>{Info.phoneNumber}</div>
+
     <div className='orgaTop'>رقم الترخيص</div>
     <div className='orgaInfo'>{Info.documentationNo}</div>
-
-    <button className='redBtn'>رفض</button>
-
-    <button className='greenBtn'>قبول</button>
-
-    </div>
-   
-</div>
-
     
-}
 
+
+{accept==""&&decline==""? <div>
+    <button className='redBtn' onClick={Decline}>رفض</button>
+
+    <button className='greenBtn' onClick={Accept}>قبول</button></div>: accept==""? <div className='order'>تم رفض الطلب</div>
+    : <div className='order'>تم قبول الطلب</div>}
+
+</div>
+</div>
+}
+{/* {accept==""&&decline==""? <div>
+    <button className='redBtn' onClick={Decline}>رفض</button>
+
+    <button className='greenBtn' onClick={Accept}>قبول</button></div>: accept==""? <div className='order'>تم رفض الطلب</div>
+    : <div className='order'>تم قبول الطلب</div>} */}
 
 </div>
 
