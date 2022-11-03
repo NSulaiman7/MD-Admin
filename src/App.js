@@ -1,16 +1,24 @@
 
 import './App.css';
-import React,{useState, useEffect} from 'react';
+// import React,{useState, useEffect} from 'react';
 import { Route, BrowserRouter,Routes } from "react-router-dom";
 import SignIn from './screens/signIn';
-import SignOut from './screens/signOut';
+import SignOut from './screens/viewReq';
+import ViewInfo from './screens/viewInfo';
+import ForgotPass from './screens/forgotPass';
+import Home from './screens/home';
+import Category from './screens/category';
+import OldCharity from './screens/oldCharity';
+import ViewInfoAll from './screens/viewInfoAll';
+// import {BrowserRouter as Router} from 'react-router-dom';
 
 
 
 function App() {
   // const [email, setEmail]= useState("");
   // const [password, setPassword]= useState("");
-  const [loggedIn, setLoggedIn]= useState();
+  // const [loggedIn, setLoggedIn]= useState();
+
 
  
 
@@ -48,7 +56,13 @@ function App() {
 <BrowserRouter>
         <Routes>        
             <Route  path="/" element={<SignIn/>}/>
-            <Route   path="/SignOut" element={<SignOut/>}/>
+            <Route   path="/viewRequest" element={<SignOut/>}/>
+            <Route   path="/viewInfo:id" element={<ViewInfo/>}/>
+            <Route   path="/ForgotPass" element={<ForgotPass/>}/>
+            <Route   path="/home" element={<Home/>}/>
+            <Route   path="/category" element={<Category/>}/>
+            <Route   path="/oldCharity" element={<OldCharity/>}/>
+            <Route   path="/viewInfoAll:id" element={<ViewInfoAll/>}/>
         </Routes >
 </BrowserRouter>
 
